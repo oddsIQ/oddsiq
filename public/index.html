@@ -2,100 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>OddsIQ — Smarter Betting</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b0f13;color:#e7ecef;margin:0}
-    .wrap{max-width:920px;margin:0 auto;padding:40px 20px}
-    h1{margin:0 0 10px;font-size:28px}
-    .card{background:#121821;border:1px solid #1f2a36;border-radius:14px;padding:24px;margin:20px 0}
-    .btn{background:#a40000;color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:600}
-    .btn:hover{opacity:.9}
-    a.cta{display:inline-block;text-decoration:none}
-    small{color:#9fb0c0}
-    input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #283544;background:#0e141b;color:#e7ecef}
-    label{display:block;margin:10px 0 6px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>OddsIQ — Smarter Multi‑Bet Predictions</title>
+  <meta name="description" content="OddsIQ helps South African bettors build smarter multi-bets with data-driven tools, guides, and responsible betting resources."/>
+  <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
-  <div class="wrap">
-    <h1>OddsIQ</h1>
-    <p>Build smarter multi-bets. Free tools, daily insights, and responsible betting education.</p>
-
-    <div class="card">
-      <h2>Multi-Bet Predictor (Preview)</h2>
-      <p>This preview accepts up to 10 matches. We’ll plug in the real prediction engine next.</p>
-
-      <div id="matches"></div>
-      <button class="btn" onclick="addMatch()">+ Add Match</button>
-      <button class="btn" onclick="predict()">Predict</button>
-
-      <div id="results" style="margin-top:16px"></div>
-
-      <p style="margin-top:16px">
-        <a class="cta" href="https://wlhollywoodbets.adsrv.eacdn.com/C.ashx?btag=a_9299b_5902c_&affid=654707&siteid=9299&adid=5902&c=" target="_blank" rel="noopener">
-          <button class="btn">Place this on HollywoodBets 🔥</button>
-        </a>
-      </p>
-
-      <small><strong>Disclaimer:</strong> For information & entertainment only. No guarantees. 18+ only. Bet responsibly.</small>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">🎯 OddsIQ <span class="badge">Smarter Betting</span></div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/predictor.html">Predictor</a>
+        <a href="/tools.html">Tools</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/responsible.html">Responsible</a>
+        <a class="cta" href="https://wlhollywoodbets.adsrv.eacdn.com/C.ashx?btag=a_9299b_5902c_&affid=654707&siteid=9299&adid=5902&c=" target="_blank" rel="noopener">Bet on HollywoodBets</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>Blog & Tools (Coming Soon)</h2>
-      <ul>
-        <li>Responsible Betting Guide</li>
-        <li>Accumulator ROI Calculator</li>
-        <li>Today’s Trending Slips</li>
-      </ul>
-    </div>
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>Build Smarter Multi‑Bets</h1>
+        <p>OddsIQ is your daily companion for accumulators: insights, calculators, and a predictor that scales to 10–30 legs. Our mission is simple — help you bet smarter and more responsibly.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="cta" href="/predictor.html">Open Predictor</a>
+          <a class="btn" href="https://wlhollywoodbets.adsrv.eacdn.com/C.ashx?btag=a_9299b_5902c_&affid=654707&siteid=9299&adid=5902&c=" target="_blank" rel="noopener">Place Bet on HollywoodBets</a>
+        </div>
+        <p class="small" style="margin-top:10px"><strong>Disclaimer:</strong> For information & entertainment only. No guarantees. 18+ only. Bet responsibly.</p>
+      </div>
+      <div class="card">
+        <h2>Today’s Quick Slip (Demo)</h2>
+        <div class="row" id="homeRows"></div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn" onclick="addMatchRow('homeRows', 5)">+ Add Match</button>
+          <button class="btn" onclick="demoPredict('homeRows','homeOut')">Predict</button>
+        </div>
+        <div id="homeOut" style="margin-top:10px"></div>
+      </div>
+    </section>
+
+    <section class="grid features">
+      <div class="card">
+        <h3>Multi‑Bet Predictor</h3>
+        <p>Accepts 10–30 legs per ticket. Based on last‑10 matches per team (historical engine coming soon).</p>
+        <a class="btn" href="/predictor.html">Try the Predictor</a>
+      </div>
+      <div class="card">
+        <h3>Calculators</h3>
+        <p>Accumulator ROI, odds converter, hedge & cashout math. Add more tools over time.</p>
+        <a class="btn" href="/tools.html">Explore Tools</a>
+      </div>
+      <div class="card">
+        <h3>Responsible Betting</h3>
+        <p>Guides and resources to help you wager responsibly and stay in control.</p>
+        <a class="btn" href="/responsible.html">Learn More</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta">
+    <span class="small">Ready to place your slip?</span>
+    <button class="btn" onclick="goAffiliate()">HollywoodBets</button>
   </div>
 
-  <script>
-    let count = 0;
-    const maxMatches = 10;
+  <footer class="container footer">
+    © 2025 OddsIQ. For information & entertainment only. Not betting advice.
+  </footer>
 
-    function addMatch(){
-      if(count >= maxMatches){ alert("Demo limit reached (10)."); return; }
-      count++;
-      const m = document.getElementById("matches");
-      const wrap = document.createElement("div");
-      wrap.className = "row";
-      wrap.innerHTML = `
-        <div>
-          <label>Match ${count}</label>
-          <input placeholder="Team A vs Team B" id="m${count}">
-        </div>
-        <div>
-          <label>Pick</label>
-          <select id="o${count}">
-            <option value="HOME">Home win</option>
-            <option value="DRAW">Draw</option>
-            <option value="AWAY">Away win</option>
-          </select>
-        </div>
-      `;
-      m.appendChild(wrap);
-    }
-
-    function predict(){
-      const res = document.getElementById("results");
-      if(count === 0){ alert("Add at least one match."); return; }
-      let out = "<h3>Suggested Outcomes</h3><ol>";
-      for(let i=1;i<=count;i++){
-        const match = document.getElementById("m"+i).value || `Match ${i}`;
-        const pick = document.getElementById("o"+i).value;
-        const conf = Math.floor(Math.random()*21+70); // placeholder
-        out += `<li><strong>${match}</strong> → ${pick} <small>(conf: ${conf}%)</small></li>`;
-      }
-      out += "</ol>";
-      res.innerHTML = out;
-    }
-
-    // seed a couple rows
-    addMatch(); addMatch();
-  </script>
+  <script src="/app.js"></script>
+  <script>addMatchRow('homeRows');addMatchRow('homeRows');</script>
 </body>
 </html>

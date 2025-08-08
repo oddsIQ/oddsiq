@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>OddsIQ Predictor — Multi‑Bet Assistant</title>
+  <meta name="description" content="Build multi‑bet predictions with OddsIQ. Accepts 10–30 legs and will use last‑10 matches per team (historical model)."/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">🎯 OddsIQ <span class="badge">Predictor</span></div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/predictor.html">Predictor</a>
+        <a href="/tools.html">Tools</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/responsible.html">Responsible</a>
+        <a class="cta" href="https://wlhollywoodbets.adsrv.eacdn.com/C.ashx?btag=a_9299b_5902c_&affid=654707&siteid=9299&adid=5902&c=" target="_blank" rel="noopener">Bet on HollywoodBets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>Multi‑Bet Predictor (Preview)</h1>
+      <p>This is a demo front‑end. The real engine will use historical data (last 10 matches per team). For now, this shows structure and UX.</p>
+      <div id="predRows" class="grid"></div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn" onclick="addMatchRow('predRows', 12)">+ Add Match</button>
+        <button class="btn" onclick="demoPredict('predRows','predOut')">Predict</button>
+      </div>
+      <div id="predOut" style="margin-top:10px"></div>
+      <div style="margin-top:14px">
+        <button class="btn" onclick="goAffiliate()">Place on HollywoodBets 🔥</button>
+      </div>
+      <p class="small" style="margin-top:10px"><strong>Disclaimer:</strong> This is for information & entertainment. Predictions are not guarantees. 18+ only.</p>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    © 2025 OddsIQ. Not betting advice.
+  </footer>
+  <script src="/app.js"></script>
+  <script>for(let i=0;i<3;i++) addMatchRow('predRows',12);</script>
+</body>
+</html>
