@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>OddsIQ — Smarter Betting</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b0f13;color:#e7ecef;margin:0}
+    .wrap{max-width:920px;margin:0 auto;padding:40px 20px}
+    h1{margin:0 0 10px;font-size:28px}
+    .card{background:#121821;border:1px solid #1f2a36;border-radius:14px;padding:24px;margin:20px 0}
+    .btn{background:#a40000;color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:600}
+    .btn:hover{opacity:.9}
+    a.cta{display:inline-block;text-decoration:none}
+    small{color:#9fb0c0}
+    input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #283544;background:#0e141b;color:#e7ecef}
+    label{display:block;margin:10px 0 6px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>OddsIQ</h1>
+    <p>Build smarter multi-bets. Free tools, daily insights, and responsible betting education.</p>
+
+    <div class="card">
+      <h2>Multi-Bet Predictor (Preview)</h2>
+      <p>This preview accepts up to 10 matches. We’ll plug in the real prediction engine next.</p>
+
+      <div id="matches"></div>
+      <button class="btn" onclick="addMatch()">+ Add Match</button>
+      <button class="btn" onclick="predict()">Predict</button>
+
+      <div id="results" style="margin-top:16px"></div>
+
+      <p style="margin-top:16px">
+        <a class="cta" href="https://wlhollywoodbets.adsrv.eacdn.com/C.ashx?btag=a_9299b_5902c_&affid=654707&siteid=9299&adid=5902&c=" target="_blank" rel="noopener">
+          <button class="btn">Place this on HollywoodBets 🔥</button>
+        </a>
+      </p>
+
+      <small><strong>Disclaimer:</strong> For information & entertainment only. No guarantees. 18+ only. Bet responsibly.</small>
+    </div>
+
+    <div class="card">
+      <h2>Blog & Tools (Coming Soon)</h2>
+      <ul>
+        <li>Responsible Betting Guide</li>
+        <li>Accumulator ROI Calculator</li>
+        <li>Today’s Trending Slips</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const maxMatches = 10;
+
+    function addMatch(){
+      if(count >= maxMatches){ alert("Demo limit reached (10)."); return; }
+      count++;
+      const m = document.getElementById("matches");
+      const wrap = document.createElement("div");
+      wrap.className = "row";
+      wrap.innerHTML = `
+        <div>
+          <label>Match ${count}</label>
+          <input placeholder="Team A vs Team B" id="m${count}">
+        </div>
+        <div>
+          <label>Pick</label>
+          <select id="o${count}">
+            <option value="HOME">Home win</option>
+            <option value="DRAW">Draw</option>
+            <option value="AWAY">Away win</option>
+          </select>
+        </div>
+      `;
+      m.appendChild(wrap);
+    }
+
+    function predict(){
+      const res = document.getElementById("results");
+      if(count === 0){ alert("Add at least one match."); return; }
+      let out = "<h3>Suggested Outcomes</h3><ol>";
+      for(let i=1;i<=count;i++){
+        const match = document.getElementById("m"+i).value || `Match ${i}`;
+        const pick = document.getElementById("o"+i).value;
+        const conf = Math.floor(Math.random()*21+70); // placeholder
+        out += `<li><strong>${match}</strong> → ${pick} <small>(conf: ${conf}%)</small></li>`;
+      }
+      out += "</ol>";
+      res.innerHTML = out;
+    }
+
+    // seed a couple rows
+    addMatch(); addMatch();
+  </script>
+</body>
+</html>
